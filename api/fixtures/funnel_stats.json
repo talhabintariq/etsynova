@@ -1,0 +1,34 @@
+{
+  "favorite_rate": 5.2,
+  "add_to_cart_rate": 8.7,
+  "conversion_rate": 4.2,
+  "metrics": {
+    "total_views": 12456,
+    "favorites": 648,
+    "cart_adds": 1084,
+    "orders": 523,
+    "abandoned_carts": 561
+  },
+  "funnel_breakdown": [
+    {
+      "stage": "Views",
+      "count": 12456,
+      "percentage": 100.0
+    },
+    {
+      "stage": "Favorites",
+      "count": 648,
+      "percentage": 5.2
+    },
+    {
+      "stage": "Cart Adds",
+      "count": 1084,
+      "percentage": 8.7
+    },
+    {
+      "stage": "Orders",
+      "count": 523,
+      "percentage": 4.2
+    }
+  ]
+}

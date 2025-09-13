@@ -1,0 +1,16 @@
+{
+  "orders": 142,
+  "gmv": 3456.78,
+  "visits": 8932,
+  "views": 12456,
+  "conversion_rate": 4.2,
+  "favorites": 234,
+  "cart_adds": 567,
+  "refunds": 23,
+  "period": "last_30_days",
+  "shop_info": {
+    "shop_id": "demo_shop_123",
+    "shop_name": "Creative Crafts Studio",
+    "created_date": "2022-03-15"
+  }
+}
