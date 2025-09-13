@@ -119,6 +119,36 @@ Once running, access the interactive API documentation:
 - Swagger UI: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
 
+### Local Development (Alternative to Docker)
+
+If you prefer to run without Docker:
+
+1. **Create Python virtual environment**
+```bash
+python -m venv venv-etsynova
+source venv-etsynova/Scripts/activate  # Windows
+# or
+source venv-etsynova/bin/activate      # macOS/Linux
+```
+
+2. **Install Python dependencies**
+```bash
+cd api
+pip install -r requirements.txt
+```
+
+3. **Start the API server**
+```bash
+python -m uvicorn app.main:app --reload
+```
+
+4. **Install and start frontend (new terminal)**
+```bash
+cd web
+npm install
+npm run dev
+```
+
 ## 🧪 Testing
 
 \`\`\`bash

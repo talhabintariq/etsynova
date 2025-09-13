@@ -17,7 +17,8 @@ def run_command(command, cwd=None):
         sys.exit(1)
 
 def main():
-    print("🚀 EtsyNova Quick Setup\n")
+    print("🚀 EtsyNova Quick Setup")
+    print("📦 Using virtual environment: venv-etsynova\n")
     
     # Check if Docker is installed
     try:
@@ -58,6 +59,10 @@ def main():
     print("   - Mock mode is enabled for testing")
     print("   - Run 'docker-compose logs -f' to see logs")
     print("   - Run 'docker-compose down' to stop services")
+    print("\n🐍 Python Virtual Environment:")
+    print("   - Environment name: venv-etsynova")
+    print("   - Activate with: source venv-etsynova/Scripts/activate")
+    print("   - Run API locally: cd api && python -m uvicorn app.main:app --reload")
 
 if __name__ == "__main__":
     main()
