@@ -1,38 +1,83 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from dotenv import load_dotenv
 import os
+import time
+import logging
+
+# Load environment variables
+load_dotenv()
+
+# Import routers
+from app.routers import auth, metrics, reports, health
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = FastAPI(
     title="EtsyNova API",
-    description="Etsy Store Analytics Dashboard API",
-    version="1.0.0"
+    description="Etsy Store Analytics Dashboard API with AI-powered insights",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc"
 )
 
-# CORS middleware
+# CORS middleware with environment configuration
+allowed_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://localhost:3001").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001"],
+    allow_origins=[origin.strip() for origin in allowed_origins],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Request logging middleware
+@app.middleware("http")
+async def log_requests(request: Request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = time.time() - start_time
+
+    # Filter out PII from logs
+    safe_path = request.url.path
+    if "token" in safe_path.lower() or "key" in safe_path.lower():
+        safe_path = "[REDACTED]"
+
+    logger.info(
+        f"Method: {request.method} | Path: {safe_path} | "
+        f"Status: {response.status_code} | Duration: {process_time:.4f}s"
+    )
+    return response
+
+# Include routers
+app.include_router(auth.router)
+app.include_router(metrics.router)
+app.include_router(reports.router)
+app.include_router(health.router)
 
 @app.get("/")
 async def root():
     return {
         "message": "Welcome to EtsyNova API",
         "version": "1.0.0",
-        "mock_mode": os.getenv("MOCK_MODE", "false") == "true"
+        "mock_mode": os.getenv("MOCK_MODE", "false") == "true",
+        "llm_provider": os.getenv("LLM_PROVIDER", "none"),
+        "endpoints": {
+            "docs": "/docs",
+            "health": "/health",
+            "auth": "/auth",
+            "metrics": "/metrics",
+            "reports": "/reports"
+        }
     }
 
-@app.get("/health")
-async def health_check():
-    return {"status": "healthy", "service": "etsynova-api"}
-
-# Mock data endpoint for testing
+# Legacy endpoints for backward compatibility
 @app.get("/api/dashboard/stats")
 async def get_dashboard_stats():
+    """Legacy endpoint - redirects to /metrics/shop"""
     if os.getenv("MOCK_MODE", "false") == "true":
         return {
             "total_orders": 142,
@@ -46,6 +91,7 @@ async def get_dashboard_stats():
 
 @app.get("/api/products/top")
 async def get_top_products():
+    """Legacy endpoint - redirects to /metrics/listings"""
     if os.getenv("MOCK_MODE", "false") == "true":
         return {
             "products": [

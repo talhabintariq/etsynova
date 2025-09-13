@@ -1,0 +1,92 @@
+{
+  "listings": [
+    {
+      "listing_id": 1001,
+      "title": "Handmade Ceramic Coffee Mug - Ocean Blue",
+      "views": 1245,
+      "orders": 45,
+      "revenue": 675.00,
+      "price": 15.00,
+      "etsy_url": "https://www.etsy.com/listing/1001/handmade-ceramic-coffee-mug-ocean-blue",
+      "tags": ["ceramic", "mug", "handmade", "blue", "coffee", "tea", "kitchen"],
+      "conversion_rate": 3.61
+    },
+    {
+      "listing_id": 1002,
+      "title": "Vintage Style Travel Poster - Paris",
+      "views": 892,
+      "orders": 32,
+      "revenue": 480.00,
+      "price": 15.00,
+      "etsy_url": "https://www.etsy.com/listing/1002/vintage-style-travel-poster-paris",
+      "tags": ["poster", "vintage", "travel", "paris", "wall art", "decor"],
+      "conversion_rate": 3.59
+    },
+    {
+      "listing_id": 1003,
+      "title": "Custom Wooden Jewelry Box with Engraving",
+      "views": 567,
+      "orders": 28,
+      "revenue": 1120.00,
+      "price": 40.00,
+      "etsy_url": "https://www.etsy.com/listing/1003/custom-wooden-jewelry-box-engraving",
+      "tags": ["jewelry box", "wooden", "custom", "engraving", "personalized"],
+      "conversion_rate": 4.94
+    },
+    {
+      "listing_id": 1004,
+      "title": "Organic Lavender Soap Set - 3 Bars",
+      "views": 723,
+      "orders": 25,
+      "revenue": 375.00,
+      "price": 15.00,
+      "etsy_url": "https://www.etsy.com/listing/1004/organic-lavender-soap-set-3-bars",
+      "tags": ["soap", "organic", "lavender", "natural", "skincare", "bath"],
+      "conversion_rate": 3.46
+    },
+    {
+      "listing_id": 1005,
+      "title": "Hand Knitted Winter Scarf - Wool Blend",
+      "views": 634,
+      "orders": 22,
+      "revenue": 440.00,
+      "price": 20.00,
+      "etsy_url": "https://www.etsy.com/listing/1005/hand-knitted-winter-scarf-wool-blend",
+      "tags": ["scarf", "knitted", "wool", "winter", "handmade", "warm"],
+      "conversion_rate": 3.47
+    },
+    {
+      "listing_id": 1006,
+      "title": "Macrame Wall Hanging - Boho Style",
+      "views": 456,
+      "orders": 18,
+      "revenue": 324.00,
+      "price": 18.00,
+      "etsy_url": "https://www.etsy.com/listing/1006/macrame-wall-hanging-boho-style",
+      "tags": ["macrame", "wall hanging", "boho", "decor", "handmade"],
+      "conversion_rate": 3.95
+    },
+    {
+      "listing_id": 1007,
+      "title": "Sterling Silver Moon Phase Earrings",
+      "views": 789,
+      "orders": 15,
+      "revenue": 450.00,
+      "price": 30.00,
+      "etsy_url": "https://www.etsy.com/listing/1007/sterling-silver-moon-phase-earrings",
+      "tags": ["earrings", "sterling silver", "moon", "celestial", "jewelry"],
+      "conversion_rate": 1.90
+    },
+    {
+      "listing_id": 1008,
+      "title": "Succulent Terrarium Kit - DIY Garden",
+      "views": 512,
+      "orders": 12,
+      "revenue": 240.00,
+      "price": 20.00,
+      "etsy_url": "https://www.etsy.com/listing/1008/succulent-terrarium-kit-diy-garden",
+      "tags": ["terrarium", "succulent", "DIY", "garden", "plants", "kit"],
+      "conversion_rate": 2.34
+    }
+  ]
+}

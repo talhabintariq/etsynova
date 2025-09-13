@@ -51,6 +51,7 @@ next-env.d.ts
 *~
 .DS_Store
 Thumbs.db
+.claude/
 
 # Database
 *.db
