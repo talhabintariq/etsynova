@@ -134,7 +134,6 @@ npm test
 ## 👥 Authors
 
 - **Talha Bin Tariq** - [GitHub](https://github.com/talhabintariq)
-- **Nimra**
 
 ## 📄 License
 
