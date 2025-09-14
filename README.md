@@ -15,8 +15,11 @@ A comprehensive analytics dashboard for Etsy store owners, providing real-time m
 - 📊 **Real-time Store Metrics** - Orders, revenue, views, conversion rates
 - 📈 **Interactive Analytics Charts** - Visualize your store performance
 - 🎯 **Top Products Analysis** - Identify best-performing listings
-- 🤖 **AI-Powered Insights** - Get actionable suggestions (Optional with OpenAI)
-- 🔒 **Privacy-First** - No customer PII stored
+- 📧 **Unified Inbox** - Manage Etsy messages and Gmail in one place
+- 🤖 **AI-Powered Draft Replies** - Generate smart responses with human approval
+- 🔗 **Smart Order Linking** - Auto-detect order numbers in emails
+- 📝 **Message Audit Trail** - Track all AI drafts and approvals
+- 🔒 **Privacy-First** - Encrypted tokens, configurable retention
 - ⚡ **Lightning Fast** - Redis caching for instant data
 
 ## 🛠️ Tech Stack
@@ -93,6 +96,11 @@ Key configuration in `.env`:
 - `MOCK_MODE` - Enable mock data for testing
 - `ETSY_CLIENT_ID` - Your Etsy app client ID
 - `ETSY_CLIENT_SECRET` - Your Etsy app secret
+- `GOOGLE_CLIENT_ID` - Your Google OAuth client ID for Gmail
+- `GOOGLE_CLIENT_SECRET` - Your Google OAuth client secret
+- `ENCRYPTION_KEY` - 32-character key for encrypting stored tokens
+- `EMAIL_RETENTION_DAYS` - Days to keep emails (default: 90)
+- `ORDER_EMAIL_RETENTION_DAYS` - Days to keep order-linked emails (default: 365)
 - `LLM_PROVIDER` - Set to "openai" for AI features
 - `OPENAI_API_KEY` - Your OpenAI API key (optional)
 
@@ -102,6 +110,18 @@ Key configuration in `.env`:
 2. Create a new app
 3. Set redirect URI to `http://localhost:8000/auth/etsy/callback`
 4. Copy credentials to `.env`
+
+### Gmail Integration Setup
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com)
+2. Create a new project or select existing
+3. Enable Gmail API
+4. Create OAuth 2.0 credentials (Web application)
+5. Add redirect URI: `http://localhost:8000/auth/google/callback`
+6. Download credentials and copy client ID/secret to `.env`
+7. Add your email to test users during development
+
+**Note:** Gmail integration includes automatic order linking and privacy-compliant retention policies.
 
 ## 🚢 Deployment
 
@@ -168,6 +188,13 @@ npm test
 ## 📄 License
 
 This project is licensed under the MIT License.
+
+## 📚 Project Docs
+
+- **Engineering guide**: docs/guides/ENGINEERING_AGENT_GUIDE.md
+- **Agent boot prompt**: docs/prompts/AGENT_BOOT_PROMPT.md
+- **PRD (Unified Inbox v1)**: docs/prd/prd-unified-inbox-v1.md
+- **Runbook (Gmail)**: docs/runbooks/gmail-integration-runbook.md
 
 ## 🙏 Acknowledgments
 
