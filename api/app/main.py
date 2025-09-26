@@ -10,7 +10,7 @@ import logging
 load_dotenv()
 
 # Import routers
-from app.routers import auth, metrics, reports, health
+from app.routers import auth, metrics, reports, health, inbox
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -57,6 +57,7 @@ app.include_router(auth.router)
 app.include_router(metrics.router)
 app.include_router(reports.router)
 app.include_router(health.router)
+app.include_router(inbox.router)
 
 @app.get("/")
 async def root():
@@ -70,7 +71,8 @@ async def root():
             "health": "/health",
             "auth": "/auth",
             "metrics": "/metrics",
-            "reports": "/reports"
+            "reports": "/reports",
+            "inbox": "/inbox"
         }
     }
 
